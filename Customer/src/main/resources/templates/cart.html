@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Basic -->
+
+<head th:replace="fragments :: head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+<!-- Start Main Top -->
+<header th:replace="fragments :: main-header">
+</header>
+<!-- End Main Top -->
+
+
+<!-- Start All Title Box -->
+<div th:replace="fragments :: slider">
+
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
+                        You don't have any items in your cart</p>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="p-2 px-3 text-uppercase">Product</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Price</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Quantity</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Total Price</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Update</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Remove</div>
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="cartItem : ${shoppingCart.cartItem}">
+                            <th scope="row" class="border-0">
+                                <div class="p-2">
+                                    <img th:src="'data:image/jepg;base64,' + ${cartItem.product.image}" alt=""
+                                         width="70" class="img-fluid rounded shadow-sm">
+                                    <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"
+                                                            th:text="${cartItem.product.name}"></a></h5><span
+                                            class="text-muted font-weight-normal font-italic d-block"
+                                            th:text="'Category: ' + ${cartItem.product.category.name}"></span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="border-0 align-middle" th:text="'$' + ${cartItem.unitPrice}">
+                            </td>
+                                <form th:action="@{/update-cart}" method="post">
+                                    <td class="border-0 align-middle">
+
+                                    <input type="hidden" name="id" th:value="${cartItem.product.id}">
+                                    <input type="number" name="quantity" th:value="${cartItem.quantity}"
+                                           class="form-control d-inline-block" style="width: 50px; margin-left: 1rem">
+                                    </td>
+                                    <td class="border-0 align-middle" th:text="'$'+${cartItem.totalPrice}"></td>
+                                    <td class="border-0 align-middle">
+                                        <button type="submit" name="action" value="update" title="Update"
+                                                class="btn btn-primary btn-icon-only " style="padding: 0 !important;">
+                                            <i class="fa fa-sync-alt"></i>
+                                        </button>
+                                    </td>
+                                    <td class="border-0 align-middle">
+                                        <button type="submit" name="action" value="delete" title="Delete"
+                                                class="btn btn-danger btn-icon-only" style="padding: 0 !important;">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 justify-content-end mt-5">
+            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary</div>
+            <div class="p-4">
+                <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have
+                    entered.</p>
+                <ul class="list-unstyled mb-4">
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order
+                        Subtotal</strong><strong th:text="${subTotal}"></strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping
+                        and handling</strong><strong>Free</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                            class="text-muted">Tax</strong><strong>$2</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                            class="text-muted">Total</strong>
+                        <h5 class="font-weight-bold" th:text="${subTotal + 2}"></h5>
+                    </li>
+                </ul>
+                <a th:href="@{/checkout}" class="btn btn-dark rounded-pill p-4 btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="fragments :: footer">
+</footer>
+
+<div th:replace="fragments :: scripts">
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{fragments::header}">
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul th:replace="~{fragments::sidebar}">
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="~{fragments::top-navbar}">
+            </nav>
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+
+                <!-- Content Row -->
+                <div class="row ml-5">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Orders</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${orderCount}"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Products</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${productCount}"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- Content Row -->
+
+            <div class="row ml-5">
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Orders per Customer</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Customer ID</th>
+                                        <th>Customer Name</th>
+                                        <th>Order Count</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="customerOrder : ${customerOrderCounts}">
+                                        <td th:text="${customerOrder.customerId}"></td>
+                                        <td th:text="${customerOrder.customerName}"></td>
+                                        <td th:text="${customerOrder.orderCount}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer th:replace="~{fragments::footer}"></footer>
+    <!-- End of Footer -->
+
+</div>
+
+
+</body>
+
+</html>

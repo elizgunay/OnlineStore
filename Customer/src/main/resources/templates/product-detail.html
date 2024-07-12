@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head>
+    <div th:replace="~{fragments::head}"></div>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}"></header>
+<!-- End Main Top -->
+
+<div class="breadcrumb-option" th:fragment="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4 th:text="${page}"></h4>
+                    <div class="breadcrumb__links">
+                        <a th:href="@{/}">Home</a>
+                        <a th:href="@{/shop}">Shop</a> <!-- Втори текст -->
+                        <span th:text="${page}"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start Shop Detail  -->
+<div class="shop-detail-box-main mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-6">
+                <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" th:src="'data:image/jpeg;base64,' + ${product.image}"
+                                 alt="First slide"></div>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="col-xl-7 col-lg-7 col-md-6">-->
+
+
+            <div class="col-lg-6">
+                <form th:action="@{/add-to-cart}" method="post">
+
+                <div class="product-content">
+                    <h2 th:text="${product.name}"></h2>
+                    <div class="pc-meta">
+                        <h5 th:text="'$' + ${product.costPrice}"></h5>
+                    </div>
+                    <p th:text="${product.description}"></p>
+                    <ul class="tags">
+                        <li>Category : <span th:text="${product.category.name}"></span></li>
+                        <li>Brand : <span th:text="${product.brand.name}"></span></li>
+                    </ul>
+                    <div class="product-quantity">
+                        <div class="pro-qty">
+                            <input type="text" value="1">
+                        </div>
+                    </div>
+                    <input type="hidden" th:value="${product.id}" name="id" class="form-control">
+                    <input type="submit" class="btn hvr-hover" value="Add to cart">
+                </div>
+                </form>
+            </div>
+
+
+            <div class="title-all text-center mt-5">
+                <h2>Related Products</h2>
+            </div>
+            <div class="row" >
+
+                <div class="col-lg-4 col-md-6 col-sm-6" th:each="product : ${products}">
+
+                <form th:action="@{/add-to-cart}" method="post">
+                    <div class="product__item">
+                        <div class="product__item__pic">
+                            <img th:src="'data:image/jpeg;base64,' + ${product.image}" alt="Product Image"/>
+                            <ul class="product__hover">
+                                <li>
+                                    <a th:href="@{/find-product/{id}(id = ${product.id})}" class="quick-view">
+                                        Quick View
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="cont-text">
+                            <div class="info">
+                                <h4 th:text="${product.name}"></h4>
+                                <h5 th:text="'$' + ${product.costPrice}"></h5>
+                            </div>
+                            <input type="hidden" th:value="${product.id}" name="id" class="form-control">
+                            <button type="submit" class="add-cart" value="Add to cart">Add to cart</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}">
+</footer>
+
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Basic -->
+
+<head th:replace="fragments :: head">
+</head>
+
+<body>
+
+    <!-- Start Main Top -->
+    <header th:replace="fragments::main-header"></header>
+    <!-- End Main Top -->
+
+
+    <!-- Start All Title Box -->
+<!--    <div th:replace="fragments :: slider">-->
+        <div class="breadcrumb-option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__links">
+                            <a th:href="@{/}"><i class="fa fa-home"></i> Home</a>
+                            <span th:text="${page}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--    </div>-->
+    <!-- End All Title Box -->
+
+    <section id="login-form">
+        <div class="noi-dung">
+            <div class="form">
+                <h2>Log In</h2>
+                <div th:if = "${param.error}" class="alert alert-danger text-center">
+                    Invalid username or password
+                </div>
+                <div th:if = "${param.logout}" class="alert alert-success text-center">
+                    You have been logged out!
+                </div>
+                <form th:action="@{/do-login}" method="post">
+                    <div class="input-form">
+                        <!-- <span>User name</span> -->
+                        <input type="text" placeholder="Username" name="username">
+                    </div>
+                    <div class="input-form">
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <div class="input-form">
+                        <input type="submit" value="Log In">
+                    </div>
+                    <div class="input-form">
+                        <p>Do You Already Have An Account ? <a th:href="@{/register}">Sign up now  </a></p>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div>
+
+        </div>
+        <!-- Start copyright  -->
+
+    </section>
+  
+
+    <footer th:replace="~{fragments::footer}">
+    </footer>
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+
+    <div th:replace="fragments :: scripts">
+    </div>
+</body>
+
+</html>

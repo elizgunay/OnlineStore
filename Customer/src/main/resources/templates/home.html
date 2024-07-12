@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<!-- Basic -->
+
+<head th:replace="fragments:: head ">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+</head>
+
+<body>
+
+<!-- Start Main Top -->
+<header th:replace="fragments :: main-header"></header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<!--<div th:replace="fragments :: top-search"></div>-->
+<!-- End Top Search -->
+<!-- Start Slider -->
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner w-100">
+        <div class="carousel-item active">
+            <img class="d-block w-100" th:src="@{/images/Boss_Banner_1200x.jpg}" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" th:src="@{/images/banner_fossil.png}" alt="Second slide">
+        </div>
+<!--        <div class="carousel-item">-->
+<!--            <img class="d-block w-100" th:src="@{/images/banner_hugo.png}" alt="Third slide">-->
+<!--        </div>-->
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- End Slider -->
+
+
+<div class="about-box-main mt-5">
+    <div class="container">
+        <div class="row align-items-center g-2">
+            <div class="col-lg-4">
+                <div class="banner-frame"><img class="img-fluid"
+                                               th:src="@{/images/citizen-crystal-chronograph-ecodrive-black-dial-mens-watch-ca075053e.jpg}"
+                                               alt=""/>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <h2>Welcome to the world of genuine timepieces.</h2>
+                <p class="text-center">Our online store is a haven for true watch enthusiasts. We offer a carefully curated selection of timepieces that blend classic charm with modern elegance.</p>
+                <p class="text-center">Discover the art of fine watchmaking with our exclusive collection. Whether you seek timeless sophistication or contemporary style, our store has the perfect watch for you.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="brands">
+    <div class="container">
+        <div id="brandsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/Fossil.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/Sekonda.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/Casio.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/diesel.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/daniel.png}" alt="Fossil">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/Tissot.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/boss.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/michalkors.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/calvin.png}" alt="Fossil">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img th:src="@{/images/dkny.png}" alt="Fossil">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#brandsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#brandsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="popular-items pt-50">-->
+<!--    <div class="container-fluid justify-content-center">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <div class="col-lg-4 col-md-6 col-sm-12 justify-content-center">-->
+<!--                <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s"-->
+<!--                     data-wow-delay=".2s">-->
+<!--                    <div class="popular-img">-->
+<!--                        <img th:src="@{/images/popular2.png}" alt="">-->
+<!--                        <div class="img-cap">-->
+<!--                            <span>Men's Watches</span>-->
+<!--                        </div>-->
+<!--                        <div class="favorite-items">-->
+<!--                            <a href="shop.html" class="btn">Shop Now</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 col-sm-12 justify-content-center">-->
+<!--                <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s"-->
+<!--                     data-wow-delay=".4s">-->
+<!--                    <div class="popular-img">-->
+<!--                        <img th:src="@{/images/popular2.png}" alt="">-->
+<!--                        <div class="img-cap">-->
+<!--                            <span>Women's Watches</span>-->
+<!--                        </div>-->
+<!--                        <div class="favorite-items">-->
+<!--                            <a href="shop.html" class="btn">Shop Now</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="popular-items pt-50">
+    <div class="container-fluid justify-content-center">
+        <div class="row justify-content-center gap">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-container">
+                <div class="single-popular-items mb-50 text-center wow " data-wow-duration="1s" data-wow-delay=".2s">
+                    <div class="popular-img card">
+                        <img th:src="@{/images/1-мъжки_часовници.jpg}" alt="" class="card-img">
+                        <div class="img-cap">
+                            <span>Men's Watches</span>
+                        </div>
+                        <div class="favorite-items">
+                            <a th:href="@{/mens-watches}" class="btnShop">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 justify-content-center card-container">
+                <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                    <div class="popular-img card">
+                        <img th:src="@{/images/1-дамски_часовници.jpg}" alt="" class="card-img">
+                        <div class="img-cap">
+                            <span>Women's Watches</span>
+                        </div>
+                        <div class="favorite-items">
+                            <a th:href="@{/womens-watches}" class="btnShop">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="product-filter">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h2>Latest Products</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row mt-2">
+            <div class="col-lg-4 col-md-6 col-sm-6" th:each="product : ${products}">
+                <form th:action="@{/add-to-cart}" method="post">
+                    <div class="product__item">
+                        <div class="product__item__pic">
+                            <img th:src="'data:image/jpeg;base64,' + ${product.image}" alt="Product Image" />
+                            <ul class="product__hover">
+                                <li>
+                                    <a th:href="@{/find-product/{id}(id = ${product.id})}" class="quick-view">
+                                        Quick View
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="cont-text">
+                            <div class="info">
+                                <h4 th:text="${product.name}"></h4>
+                                <h5 th:text="${product.costPrice}"></h5>
+                            </div>
+                            <input type="hidden" th:value="${product.id}" name="id" class="form-control">
+                            <button type="submit" class="btnAdd" >Add to cart</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}">
+</footer>
+
+
+<!-- ALL JS FILES -->
+<div th:replace="~{fragments::script}"></div>
+
+
+<script>
+    $(document).ready(function () {
+        // Initialize the carousel
+        $('#carouselExampleIndicators').carousel({
+            interval: 2000, // Set the interval for auto-slide
+            pause: 'hover' // Pause the carousel on hover
+        });
+
+        // Custom event listener for slide event
+        $('#carouselExampleIndicators').on('slide.bs.carousel', function (event) {
+            console.log('Slide event detected:', event);
+        });
+
+        // Custom navigation buttons (optional)
+        $('.carousel-control-prev').click(function () {
+            $('#carouselExampleIndicators').carousel('prev');
+        });
+
+        $('.carousel-control-next').click(function () {
+            $('#carouselExampleIndicators').carousel('next');
+        });
+    });
+
+
+
+        function filterProducts(element) {
+        const filterValue = element.getAttribute('data-filter');
+        const productItems = document.querySelectorAll('.product-item');
+
+        productItems.forEach(item => {
+        if (filterValue === '*' || item.classList.contains(filterValue)) {
+        item.style.display = 'block';
+    } else {
+        item.style.display = 'none';
+    }
+    });
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="fragments :: head">
+
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<header th:replace="fragments :: main-header">
+
+</header>
+<!-- End Main Top -->
+
+
+
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contact Us</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                        <li class="breadcrumb-item active"> Contact Us </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+<!-- Start Contact Us  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right ">
+                    <h2>GET IN TOUCH</h2>
+                    <p>Please send a message or call us if you want to comment on our food or you feel that our food has problems.</p>
+                    <form id="contactForm" th:action="@{/send-message}" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" name="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="submit-button text-center">
+                                    <button class="btn hvr-hover" type="submit">Send Message</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="contact-info-left">
+                    <h2>CONTACT US</h2>
+                    <p>Please send a message or call us if you want to comment on our food or you feel that our food has problems.</p>
+                    <ul class="contact-ul">
+                        <li class="contact-ul">
+                            <p><i class="fas fa-phone-square"></i>Phone: +84067631186</p>
+                        </li>
+                        <li class="contact-ul">
+                            <p><i class="fas fa-envelope"></i>Email: abc@gmail.com</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+
+
+
+    <!-- Start Footer  -->
+    <footer th:replace="fragments :: footer">
+    </footer>
+				
+   <div th:replace="fragments :: scripts">
+
+   </div>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+</header>
+<!-- End Main Top -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments:: slider}">
+</div>
+<!-- End All Title Box -->
+
+
+<!-- Shop Section Begin -->
+<section class="shop spad mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form th:action="@{/search-product}" method="get">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card cardFilter">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <li th:each="categoryDto : ${categories}">
+                                                    <a th:href="@{/find-products/{id}(id = ${categoryDto.categoryId})}"
+                                                       th:text="${categoryDto.categoryName + '(' + categoryDto.productSize + ')'}"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card cardFilter">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__brand">
+                                            <ul>
+                                                <li th:each="brandDto : ${brands}">
+                                                    <a th:href="@{/find-products-by-brand/{id}(id = ${brandDto.brandId})}"
+                                                       th:text="${brandDto.brandName + '(' + brandDto.productSize + ')'}"></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card cardFilter">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <ul>
+                                                <li><a href="http://localhost:8020/shop/price-range?min=0&max=100">0.00
+                                                    - 100.00</a></li>
+                                                <li><a href="http://localhost:8020/shop/price-range?min=100&max=500">100.00
+                                                    - 500.00</a></li>
+                                                <li><a href="http://localhost:8020/shop/price-range?min=500&max=1000">500.00
+                                                    - 1000.00</a></li>
+                                                <li>
+                                                    <a href="http://localhost:8020/shop/price-range?min=1000&max=999999">1000.00+</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>Showing 1–12 of 126 results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+                                <span>Sort by price </span>
+                                <select id="basic" class="form-control right w-50" onchange="location = this.value;">
+                                    <option value="">--Select--</option>
+                                    <option value="http://localhost:8020/shop/shop-detail">Normal</option>
+                                    <option value="http://localhost:8020/shop/high-price">High Price → Low Price
+                                    </option>
+                                    <option value="http://localhost:8020/shop/low-price">Low Price → High Price</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6" th:each="product : ${products}">
+                        <form th:action="@{/add-to-cart}" method="post">
+                            <div class="product__item">
+                                <div class="product__item__pic">
+                                    <img th:src="'data:image/jpeg;base64,' + ${product.image}" alt="Product Image" />
+                                    <ul class="product__hover">
+                                        <li>
+                                            <a th:href="@{/find-product/{id}(id = ${product.id})}" class="quick-view">
+                                                Quick View
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="cont-text">
+                                    <div class="info">
+                                        <h4 th:text="${product.name}"></h4>
+                                        <h5 th:text="${product.costPrice}"></h5>
+                                    </div>
+                                    <input type="hidden" th:value="${product.id}" name="id" class="form-control">
+                                    <button type="submit" class="add-cart" value="Add to cart">Add to cart</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}">
+
+</footer>
+
+
+<div th:replace="~{fragments::script}"></div>
+
+
+</body>
+
+</html>
