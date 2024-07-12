@@ -1,6 +1,6 @@
 # Online Watch Store
 
-This project is a graduation thesis on the topic "Online Watch Store," developed using Spring Boot and Thymeleaf.
+This project is a graduation thesis on the topic "Online Watch Store", developed using Spring Boot and Thymeleaf.
 
 ## Description
 
