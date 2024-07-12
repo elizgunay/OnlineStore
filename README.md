@@ -12,5 +12,6 @@ The project is an online store for selling watches. Users can browse products, a
 - Spring Boot
 - Spring Data JPA
 - Spring Security
-- Thymeleaf
+- Bootstrap and Thymeleaf
 - MySQL
+- Hibernate
